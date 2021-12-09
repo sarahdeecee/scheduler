@@ -1,10 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Button from '../Button';
+import InterviewerList from '../InterviewerList';
 
 export default function Form(props) {
-
+  const [form, setForm] = useState({
+    input: '',
+    student: '',
+    interviewer: null
+  });
   const { student, interviewers, interviewer, onSave, onCancel } = props;
   const handleInput = (event) => {
-    setInput({value: event.target.value});
+    setForm((prevForm) => {
+      return {
+        ...prevForm,
+        input: event.target.value
+      }
+    });
+  }
+  const setStudent = event => {
+    setForm((prevForm) => {
+      return {
+        ...prevForm,
+        student: event.target.value
+      }
+    });
+  }
+  const setInterviewer = event => {
+    setForm((prevForm) => {
+      return {
+        ...prevForm,
+        interviewer: event.target.value
+      }
+    });
   }
   return (
     <main className="appointment__card appointment__card--create">
@@ -15,15 +42,16 @@ export default function Form(props) {
             name="name"
             type="text"
             placeholder="Enter Student Name"
-            value={input}
+            value={form.input}
             onChange={handleInput}
+            onSubmit={setStudent}
           />
         </form>
         <InterviewerList 
           interviewers={interviewers}
           interviewer={interviewer}
-          onChange={}
-          value={}
+          onChange={setInterviewer}
+          value={form.interviewer}
         />
       </section>
       <section className="appointment__card-right">
