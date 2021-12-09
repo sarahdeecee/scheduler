@@ -6,19 +6,19 @@ import "components/InterviewerList.scss";
 import "components/InterviewerListItem.scss";
 
 export default function InterviewerList(props) {
-  const { interviewers, interviewer, setInterviewer, selected } = props;
+  const { interviewers, interviewer, onChange, value } = props;
   const parsedInterviewers = interviewers.map(oneInterviewer => 
     <InterviewerListItem key={oneInterviewer.id}
       name={oneInterviewer.name}
       avatar={oneInterviewer.avatar}
-      selected={selected}
-      setInterviewer={() => action("setInterviewer")(oneInterviewer.id)}
+      selected={oneInterviewer.id === value}
+      setInterviewer={() => onChange(interviewer.id)}  
     />
   );
   return (
     <section className="interviewers">
       <h4 className="interviewers__header text--light">Interviewer</h4>
-      <ul className='interviewers__list' onClick={setInterviewer}>{parsedInterviewers}</ul>
+      <ul className='interviewers__list' onClick={onChange}>{parsedInterviewers}</ul>
     </section>
   );
 };
