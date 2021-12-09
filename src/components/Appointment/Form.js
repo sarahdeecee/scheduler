@@ -7,14 +7,6 @@ export default function Form(props) {
     student: props.student || '',
     interviewer: props.interviewer || null
   })
-  const setInterviewer = event => {
-    setForm((prevForm) => {
-      return {
-        ...prevForm,
-        interviewer: event.target.value
-      }
-    });
-  }
   const reset = () => {
     setForm({
       student: '',
@@ -35,10 +27,11 @@ export default function Form(props) {
             type="text"
             placeholder="Enter Student Name"
             value={form.student}
-            onChange={(e) => setForm({student: e.target.value})}
+            onChange={(e) => setForm({...form, student: e.target.value})}
           />
         </form>
         <InterviewerList
+          name="interviewer"
           interviewers={props.interviewers}
           onChange={setForm}
           value={form.interviewer}
