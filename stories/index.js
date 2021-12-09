@@ -11,6 +11,7 @@ import DayListItem from "components/DayListItem";
 import InterviewerList from "components/InterviewerList";
 import InterviewerListItem from "components/InterviewerListItem";
 import Appointment from "components/Appointment";
+import Header from "components/Appointment/Header";
 
 // Tests for Button.js
 storiesOf("Button", module)
