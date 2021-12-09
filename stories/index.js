@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
@@ -146,6 +146,10 @@ storiesOf("InterviewerListItem", module)
     />
   ));
 
+  const student = {
+    id: 3,
+    name: 'Sarah Dela Cruz'
+  }
   // Tests for Appointment components
   storiesOf("Appointment", module)
   .addParameters({
@@ -170,4 +174,20 @@ storiesOf("InterviewerListItem", module)
   .add("Error", () => <Error
     message="Could not delete appointment"
     onClose={action("onClose")}
-  />);
+  />)
+  .add("Edit", () => <Form
+    student={student.name}
+    interviewer={interviewer.id}
+    interviewers={interviewers}
+    onSave={action("onSave")}
+    onCancel={action("onClose")} />)
+  .add("Create", () => <Form
+    interviewers={interviewers}
+    onSave={action("onSave")}
+    onCancel={action("onClose")} />)
+  .add("Appointment Empty", () => (
+    <Fragment>
+      <Appointment id={1} time="4pm" />
+      <Appointment time="5pm" />
+    </Fragment>
+  ));
