@@ -3,12 +3,23 @@ import Button from '../Button';
 import InterviewerList from '../InterviewerList';
 
 export default function Form(props) {
-  const [student, setStudent] = useState(props.student || '');
-  const [interviewer, setInterviewer] = useState(props.interviewer || null);
-
+  const [form, setForm] = useState({
+    student: props.student || '',
+    interviewer: props.interviewer || null
+  })
+  const setInterviewer = event => {
+    setForm((prevForm) => {
+      return {
+        ...prevForm,
+        interviewer: event.target.value
+      }
+    });
+  }
   const reset = () => {
-    setStudent('');
-    setInterviewer('');
+    setForm({
+      student: '',
+      interviewer: null
+    });
   };
   const cancel = () => {
     props.onCancel();
@@ -23,14 +34,14 @@ export default function Form(props) {
             name="name"
             type="text"
             placeholder="Enter Student Name"
-            value={student}
-            onChange={(e) => setStudent(e.target.value)}
+            value={form.student}
+            onChange={(e) => setForm({student: e.target.value})}
           />
         </form>
         <InterviewerList
           interviewers={props.interviewers}
-          onChange={setInterviewer}
-          value={interviewer}
+          onChange={setForm}
+          value={form.interviewer}
         />
       </section>
       <section className="appointment__card-right">

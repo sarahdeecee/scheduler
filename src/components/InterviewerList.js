@@ -7,13 +7,17 @@ import "components/InterviewerListItem.scss";
 
 export default function InterviewerList(props) {
   const { interviewers, onChange, value } = props;
-
   const parsedInterviewers = interviewers.map(oneInterviewer => 
     <InterviewerListItem key={oneInterviewer.id}
       name={oneInterviewer.name}
       avatar={oneInterviewer.avatar}
       selected={oneInterviewer.id === value}
-      onChange={(e) => onChange(oneInterviewer.id)}  
+      onChange={(e) => onChange((prevForm) => {
+        return {
+          ...prevForm,
+          interviewer: oneInterviewer.id
+        }
+      })}
     />
   );
   return (
