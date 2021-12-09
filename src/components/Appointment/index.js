@@ -7,14 +7,14 @@ import Show from './Show';
 import Empty from './Empty';
 
 export default function Appointment(props) {
-  const { time, interview } = props;
+  const { time, interview, interviewer } = props;
 
   const formatTime = (time) ? (`Appointment at ${time}`) : 'No Appointments';
   
   return (
     <article className="appointment">
       <Header time={time} />
-      {interview ? <Show /> : <Empty />}
+      {interview ? <Show {...interview} /> : <Empty />}
     </article>
   );
 }

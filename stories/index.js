@@ -177,14 +177,14 @@ storiesOf("InterviewerListItem", module)
   />)
   .add("Edit", () => <Form
     student={student.name}
-    interviewer={interviewer.id}
+    interviewer={1}
     interviewers={interviewers}
     onSave={action("onSave")}
-    onCancel={action("onClose")} />)
+    onCancel={action("onCancel")} />)
   .add("Create", () => <Form
     interviewers={interviewers}
     onSave={action("onSave")}
-    onCancel={action("onClose")} />)
+    onCancel={action("onCancel")} />)
   .add("Appointment Empty", () => (
     <Fragment>
       <Appointment id={1} time="4pm" />
