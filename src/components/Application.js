@@ -46,7 +46,7 @@ const appointments = [
 
 export default function Application(props) {
   const [days, setDays] = useState([]);
-  const [day, setDay] = useState([]);
+  const [days, setDays] = useState([]);
   useEffect(() => {
     const url = 'http://localhost:8001/api/days';
     axios.get(url).then((response) => {
