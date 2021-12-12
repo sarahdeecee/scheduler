@@ -1,4 +1,4 @@
-export function getAppointmentsForDay(state, day) {
+export default function getAppointmentsForDay(state, day) {
   const dayAppointments = [];
   if (state.length === 0 || !state || !state.days || !state.appointments) {
     return dayAppointments;
