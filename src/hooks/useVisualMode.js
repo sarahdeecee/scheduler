@@ -5,10 +5,9 @@ const useVisualMode = (initial) => {
   const [history, setHistory] = useState([initial]);
 
   const transition = (newMode, replace = false) => {
-    if (newMode) {
-      replace = true;
-    }
     if (replace) {
+      setMode(newMode);
+    } else {
       setHistory(prev => [...prev, mode]);
       setMode(newMode);
     }
