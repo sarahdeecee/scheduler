@@ -1,6 +1,4 @@
 import React from "react";
-import classNames from "classnames";
-import { action } from "@storybook/addon-actions/dist/preview";
 import InterviewerListItem from "components/InterviewerListItem";
 import "components/InterviewerList.scss";
 import "components/InterviewerListItem.scss";

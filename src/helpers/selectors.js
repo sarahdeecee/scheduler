@@ -36,7 +36,7 @@ export function getInterview(state, interview) {
 };
 
 export function getInterviewersForDay(state, day) {
-  const {days, appointments, interviewers} = state;
+  const {days, interviewers} = state;
   if (!days || !state) {
     return null;
   }

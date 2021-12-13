@@ -1,5 +1,4 @@
-import { action } from "@storybook/addon-actions/dist/preview";
-import React, { Fragment } from "react";
+import React from "react";
 import "./styles.scss";
 import Header from './Header';
 import Show from './Show';
@@ -18,7 +17,6 @@ export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
     interview ? SHOW : EMPTY
   );
-  console.log(mode);
 
   return (
     <article className="appointment">
