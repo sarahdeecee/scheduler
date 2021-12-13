@@ -3,15 +3,13 @@ import Button from '../Button';
 import InterviewerList from '../InterviewerList';
 
 export default function Form(props) {
-  const [form, setForm] = useState({
-    student: props.student || '',
-    interviewer: props.interviewer || null
-  })
+  const [student, setStudent] = useState(props.student || '');
+  const [interviewer, setInterviewer] = useState(props.interviewer || null);
+  console.log(props);
+
   const reset = () => {
-    setForm({
-      student: '',
-      interviewer: null
-    });
+    setStudent('');
+    setInterviewer(null);
   };
   const cancel = () => {
     props.onCancel();
@@ -26,20 +24,20 @@ export default function Form(props) {
             name="name"
             type="text"
             placeholder="Enter Student Name"
-            value={form.student}
-            onChange={(e) => setForm({...form, student: e.target.value})}
+            value={student}
+            onChange={(e) => setStudent(e.target.value)}
           />
         </form>
         <InterviewerList
           interviewers={props.interviewers}
-          onChange={setForm}
-          value={form.interviewer}
+          onChange={setInterviewer}
+          value={interviewer}
         />
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
           <Button danger onClick={cancel}>Cancel</Button>
-          <Button confirm onClick={props.onSave(form.student, form.interviewer)}>Save</Button>
+          <Button confirm onClick={() => props.onSave(student, interviewer)}>Save</Button>
         </section>
       </section>
     </main>

@@ -10,12 +10,7 @@ export default function InterviewerList(props) {
       name={oneInterviewer.name}
       avatar={oneInterviewer.avatar}
       selected={oneInterviewer.id === value}
-      onChange={(e) => onChange((form) => {
-        return {
-          ...form,
-          interviewer: oneInterviewer.id
-        }
-      })}
+      onChange={(e) => onChange(oneInterviewer.id)}
     />
   );
   return (

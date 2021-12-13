@@ -5,6 +5,11 @@ import "components/Application.scss";
 import DayList from 'components/DayList';
 import Appointment from 'components/Appointment';
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from 'helpers/selectors';
+import useVisualMode from "hooks/useVisualMode";
+
+const EMPTY = "EMPTY";
+const SHOW = "SHOW";
+const CREATE = "CREATE";
 
 export default function Application(props) {
   const [state, setState] = useState({
@@ -28,12 +33,34 @@ export default function Application(props) {
     });
   }, []);
 
-  const setDay = day => setState({ ...state, day });
+  const { mode, transition, back } = useVisualMode(
+    props.interview ? SHOW : EMPTY
+  );
+
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const dailyInterviewers = getInterviewersForDay(state, state.day);
+  const setDay = day => setState({ ...state, day });
   const bookInterview = (id, interview) => {
-    console.log(id, interview);
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+    setState({...state, appointments});
+    console.log('bookInterview',id,interview);
   };
+  const save = (name, interviewer) => {
+    const interview = {
+      student: name,
+      interviewer
+    };
+    bookInterview(interviewer, interview);
+    transition(SHOW);
+  }
+
   const parsedAppointments = dailyAppointments.map(appointment => {
     const interview = getInterview(state, appointment.interview);
 
@@ -72,7 +99,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
         {parsedAppointments}
-        <Appointment time='5pm' />
+        <Appointment time='5pm' onSave={save} />
       </section>
     </main>
   );
