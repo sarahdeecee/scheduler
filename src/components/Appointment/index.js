@@ -1,20 +1,41 @@
 import { action } from "@storybook/addon-actions/dist/preview";
 import React, { Fragment } from "react";
-import classNames from "classnames";
 import "./styles.scss";
 import Header from './Header';
 import Show from './Show';
 import Empty from './Empty';
+import Form from './Form';
+import useVisualMode from "hooks/useVisualMode";
+
+const EMPTY = "EMPTY";
+const SHOW = "SHOW";
+const CREATE = "CREATE";
 
 export default function Appointment(props) {
-  const { time, interview, interviewer } = props;
+  const { time, interview } = props;
+  const interviewers = [];
 
-  const formatTime = (time) ? (`Appointment at ${time}`) : 'No Appointments';
-  
+  const { mode, transition, back } = useVisualMode(
+    interview ? SHOW : EMPTY
+  );
+  console.log(mode);
+
   return (
     <article className="appointment">
       <Header time={time} />
-      {interview ? <Show {...interview} {...interviewer} /> : <Empty />}
+        {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
+        {mode === SHOW && (
+          <Show
+            student={interview.student}
+            interviewer={interview.interviewer}
+          />
+        )}
+        {mode === CREATE && 
+          <Form interviewers={interviewers}
+          onCancel={() => back()}
+          onSave={() => console.log('onSave')}
+          />
+        }
     </article>
   );
 }
