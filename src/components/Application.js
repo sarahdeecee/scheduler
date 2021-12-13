@@ -14,7 +14,6 @@ export default function Application(props) {
     interviewers: {}
   });
 
-  console.log('day',state.day);
   useEffect(() => {
     const daysUrl = 'http://localhost:8001/api/days';
     const appointmentsUrl = 'http://localhost:8001/api/appointments';
@@ -30,12 +29,9 @@ export default function Application(props) {
   }, []);
 
   const setDay = day => setState({ ...state, day });
-    const dailyAppointments = getAppointmentsForDay(state, state.day);
-    console.log(dailyAppointments);
-  useEffect(() => {
-
-  }, [state.day])
-
+  const dailyAppointments = getAppointmentsForDay(state, state.day);
+  const dailyInterviewers = getInterviewersForDay(state, state.day);
+  
   const parsedAppointments = dailyAppointments.map(appointment => {
     const interview = getInterview(state, appointment.interview);
 
@@ -44,10 +40,10 @@ export default function Application(props) {
         key={appointment.id}
         {...appointment}
         interview={interview}
+        interviewers={dailyInterviewers}
       />
     );
   });
-
 
   return (
     <main className="layout">
@@ -73,6 +69,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
         {parsedAppointments}
+        <Appointment time='5pm' />
       </section>
     </main>
   );
