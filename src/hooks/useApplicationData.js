@@ -9,7 +9,17 @@ export default function useApplicationData() {
     interviewers: {}
   });
 
-  // retrieve information from the apin and set to state
+  // calculate the number of empty spots
+  const calcEmptySpots = (id, appointments) => {
+    if (state.days.length > 0 && appointments !== {}) {
+      const index = state.days.findIndex(day => day.appointments.includes(id));
+      const appointmentIds = state.days[index].appointments;
+      const empty = appointmentIds.filter(id => appointments[id].interview === null).length
+      return empty;
+    };
+  };
+
+  // retrieve information from the api and set to state
   useEffect(() => {
     const daysUrl = 'http://localhost:8001/api/days';
     const appointmentsUrl = 'http://localhost:8001/api/appointments';
@@ -38,10 +48,12 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
-    
+    const days = [...state.days];
+    const index = state.days.findIndex(day => day.appointments.includes(id));
+    days[index].spots = calcEmptySpots(id, appointments);
     return axios.put('http://localhost:8001/api/appointments/' + id, {interview})
     .then((res) => {
-      setState({ ...state, appointments });
+      setState({ ...state, appointments, days });
       console.log('status',res.status);
     });
   };
@@ -49,9 +61,20 @@ export default function useApplicationData() {
   // deletes appointment from api
   const cancelInterview = (id) => {
     console.log('cancelInterview',id);
+    const appointment = {
+      ...state.appointments[id],
+      interview: null
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+    const days = [...state.days];
+    const index = state.days.findIndex(day => day.appointments.includes(id));
+    days[index].spots = calcEmptySpots(id, appointments);
     return axios.delete('http://localhost:8001/api/appointments/' + id)
     .then((res) => {
-      setState({ ...state });
+      setState(prev => ({ ...prev, days, appointments }));
       console.log('status',res.status);
     });
   };
