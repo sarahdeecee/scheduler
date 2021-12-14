@@ -46,9 +46,6 @@ export default function Application(props) {
     .then((res) => {
       setState({ ...state, appointments });
       console.log('status',res.status);
-    })
-    .catch((err) => {
-      console.err(err.message);
     });
   };
   const cancelInterview = (id) => {
@@ -57,9 +54,6 @@ export default function Application(props) {
     .then((res) => {
       setState({ ...state });
       console.log('status',res.status);
-    })
-    .catch((err) => {
-      console.log(err);
     });
   };
   const editInterview = (id, student, interviewer) => {
