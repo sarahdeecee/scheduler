@@ -51,6 +51,12 @@ export default function Application(props) {
       console.err(err.message);
     });
   };
+  const cancelInterview = (id) => {
+    console.log('cancelInterview',id);
+  };
+  const editInterview = (id) => {
+    console.log('editInterview',id);
+  };
 
   const parsedAppointments = dailyAppointments.map(appointment => {
     const interview = getInterview(state, appointment.interview);
@@ -62,6 +68,8 @@ export default function Application(props) {
         interview={interview}
         interviewers={dailyInterviewers}
         bookInterview={bookInterview}
+        editInterview={editInterview}
+        cancelInterview={cancelInterview}
       />
     );
   });
