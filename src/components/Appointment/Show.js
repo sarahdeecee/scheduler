@@ -17,13 +17,13 @@ export default function Show(props) {
             className="appointment__actions-button"
             src="images/edit.png"
             alt="Edit"
-            onClick={() => onEdit({id, student, interviewer})}
+            onClick={() => onEdit()}
           />
           <img
             className="appointment__actions-button"
             src="images/trash.png"
             alt="Delete"
-            onClick={() => onDelete({id})}
+            onClick={() => onDelete()}
           />
         </section>
       </section>
