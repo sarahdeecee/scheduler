@@ -12,12 +12,13 @@ const CREATE = "CREATE";
 
 export default function Appointment(props) {
   const { time, interview, interviewers, bookInterview, id } = props;
-  console.log('index bookInterview',props);
+  console.log('Appointment (index) props',props);
   const { mode, transition, back } = useVisualMode(
     interview ? SHOW : EMPTY
   );
 
   const save = (name, interviewer) => {
+    console.log('save', name, interviewer);
     if(!name || !interviewer) {
       return;
     }
@@ -25,9 +26,10 @@ export default function Appointment(props) {
       student: name,
       interviewer
     };
-    bookInterview(id, interview);
-
-    console.log('save', name, interviewer);
+    bookInterview(id, interview)
+    .then(() => {
+      transition(SHOW);
+    });
   }
   
   return (
