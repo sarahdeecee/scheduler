@@ -29,7 +29,7 @@ export default function Appointment(props) {
     if(!name || !interviewer) {
       return;
     }
-    transition(SAVING, true);
+    transition(SAVING);
     const interview = {
       student: name,
       interviewer
@@ -39,7 +39,7 @@ export default function Appointment(props) {
     .then(() => {
       transition(SHOW);
     })
-    .catch(() => {
+    .catch((error) => {
       transition(ERROR_SAVE, true)
     });
   };
@@ -54,7 +54,7 @@ export default function Appointment(props) {
     .then(()=> {
       transition(EMPTY);
     })
-    .catch(() => {
+    .catch((error) => {
       transition(ERROR_DELETE, true)
     });
   };
