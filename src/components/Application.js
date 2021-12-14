@@ -53,9 +53,20 @@ export default function Application(props) {
   };
   const cancelInterview = (id) => {
     console.log('cancelInterview',id);
+    return axios.delete('http://localhost:8001/api/appointments/' + id)
+    .then((res) => {
+      setState({ ...state });
+      console.log('status',res.status);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   };
   const editInterview = (id) => {
     console.log('editInterview',id);
+  };
+  const toConfirmation = () => {
+    console.log('toConfirmation');
   };
 
   const parsedAppointments = dailyAppointments.map(appointment => {
@@ -69,6 +80,7 @@ export default function Application(props) {
         interviewers={dailyInterviewers}
         bookInterview={bookInterview}
         editInterview={editInterview}
+        toConfirmation={toConfirmation}
         cancelInterview={cancelInterview}
       />
     );
