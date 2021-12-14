@@ -11,6 +11,7 @@ import useVisualMode from "hooks/useVisualMode";
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE";
+const EDIT = "EDIT";
 const SAVING = "SAVING";
 const CONFIRM = "CONFIRM";
 const DELETING = "DELETING";
@@ -48,7 +49,12 @@ export default function Appointment(props) {
       transition(EMPTY);
     });
   };
-  
+
+  const edit = (id, student, interviewer) => {
+    transition(EDIT);
+    editInterview(id, student, interviewer);
+  }
+
   return (
     <article className="appointment">
       <Header time={time} />
@@ -58,12 +64,20 @@ export default function Appointment(props) {
             id={id}
             student={interview.student}
             interviewer={interview.interviewer}
-            onEdit={editInterview}
+            onEdit={edit}
             onDelete={onDelete}
           />
         }
         {mode === CREATE && 
           <Form interviewers={interviewers}
+          onCancel={() => back()}
+          onSave={save}
+          />
+        }
+        {mode === EDIT &&
+          <Form student={interview.student}
+          interviewer={interview.interviewer.id}
+          interviewers={interviewers}
           onCancel={() => back()}
           onSave={save}
           />

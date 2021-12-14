@@ -62,8 +62,8 @@ export default function Application(props) {
       console.log(err);
     });
   };
-  const editInterview = (id) => {
-    console.log('editInterview',id);
+  const editInterview = (id, student, interviewer) => {
+    console.log('editInterview',id, student, interviewer);
   };
   const toConfirmation = () => {
     console.log('toConfirmation');
