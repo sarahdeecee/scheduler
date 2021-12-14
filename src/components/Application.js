@@ -5,12 +5,6 @@ import "components/Application.scss";
 import DayList from 'components/DayList';
 import Appointment from 'components/Appointment';
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from 'helpers/selectors';
-import useVisualMode from "hooks/useVisualMode";
-
-const EMPTY = "EMPTY";
-const SHOW = "SHOW";
-const CREATE = "CREATE";
-const STATUS = "STATUS";
 
 export default function Application(props) {
   const [state, setState] = useState({
@@ -33,10 +27,6 @@ export default function Application(props) {
       setState(prev => ({...prev, days: daysData.data, appointments: appointmentsData.data, interviewers: interviewersData.data}));
     });
   }, []);
-
-  const { mode, transition, back } = useVisualMode(
-    props.interview ? SHOW : EMPTY
-  );
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const dailyInterviewers = getInterviewersForDay(state, state.day);
@@ -61,8 +51,6 @@ export default function Application(props) {
       console.err(err.message);
     });
   };
-
-
 
   const parsedAppointments = dailyAppointments.map(appointment => {
     const interview = getInterview(state, appointment.interview);
