@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function useApplicationData() {
@@ -19,6 +19,12 @@ export default function useApplicationData() {
     };
   };
 
+  const updateDaySpots = (id, appointments) => {
+    const days = [...state.days];
+    const index = state.days.findIndex(day => day.appointments.includes(id));
+    days[index].spots = calcEmptySpots(id, appointments);
+    return days;
+  }
   // retrieve information from the api and set to state
   useEffect(() => {
     const daysUrl = 'http://localhost:8001/api/days';
@@ -48,9 +54,7 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
-    const days = [...state.days];
-    const index = state.days.findIndex(day => day.appointments.includes(id));
-    days[index].spots = calcEmptySpots(id, appointments);
+    const days = updateDaySpots(id, appointments);
     return axios.put('http://localhost:8001/api/appointments/' + id, {interview})
     .then((res) => {
       setState({ ...state, appointments, days });
@@ -69,9 +73,7 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
-    const days = [...state.days];
-    const index = state.days.findIndex(day => day.appointments.includes(id));
-    days[index].spots = calcEmptySpots(id, appointments);
+    const days = updateDaySpots(id, appointments);
     return axios.delete('http://localhost:8001/api/appointments/' + id)
     .then((res) => {
       setState(prev => ({ ...prev, days, appointments }));
