@@ -1,3 +1,4 @@
+// Find and return appointments array for a given day
 export function getAppointmentsForDay(state, day) {
   const dayAppointments = [];
   if (state.length === 0 || !state || !state.days || !state.appointments) {
@@ -16,6 +17,7 @@ export function getAppointmentsForDay(state, day) {
   return dayAppointments;
 };
 
+// Find and return an interview object for a given interview ID
 export function getInterview(state, interview) {
   if (!interview || !state) {
     return null;
@@ -35,6 +37,7 @@ export function getInterview(state, interview) {
   return interviewObj;
 };
 
+// Find and return interviewers array for a given day
 export function getInterviewersForDay(state, day) {
   const {days, interviewers} = state;
   if (!days || !state) {

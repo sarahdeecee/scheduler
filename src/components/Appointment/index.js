@@ -21,15 +21,25 @@ const ERROR_DELETE = "ERROR_DELETE";
 
 export default function Appointment(props) {
   const { time, interview, interviewers, bookInterview, id, cancelInterview } = props;
+  
+  // Show Form if an interview exists, show Empty if no interview exists
   const { mode, transition, back } = useVisualMode(
     interview ? SHOW : EMPTY
   );
 
+    // Upon selecting edit from Show, transition to Confirm screen
+    const edit = () => {
+      transition(EDIT);
+    }  
+
+  // After editing, transition to Status (Saving) screen and submit info to API
   const save = (name, interviewer) => {
     if(!name || !interviewer) {
       return;
     }
+
     transition(SAVING);
+    
     const interview = {
       student: name,
       interviewer
@@ -43,10 +53,14 @@ export default function Appointment(props) {
       transition(ERROR_SAVE, true)
     });
   };
+
+  // Upon selecting delete from Show, transition to Confirm screen
   const onDelete = () => {
     transition(CONFIRM);
   };
 
+  // Upon confirming delete, transition to Status (Deleting) screen,
+  // then transition to Empty screen on success or Error screen on failure
   const onConfirm = (id) => {
     transition(DELETING, true);
     cancelInterview(id)
@@ -57,10 +71,6 @@ export default function Appointment(props) {
       transition(ERROR_DELETE, true)
     });
   };
-
-  const edit = (id, student, interviewer) => {
-    transition(EDIT);
-  }
 
   return (
     <article className="appointment">

@@ -1,16 +1,18 @@
 import React from "react";
-
 import "components/Application.scss";
+import useApplicationData from "hooks/useApplicationData";
+import { getAppointmentsForDay, getInterview, getInterviewersForDay } from 'helpers/selectors';
 import DayList from 'components/DayList';
 import Appointment from 'components/Appointment';
-import { getAppointmentsForDay, getInterview, getInterviewersForDay } from 'helpers/selectors';
-import useApplicationData from "hooks/useApplicationData";
 
 export default function Application(props) {
+  // Get state and functions from useApplicationData
   const {state, setDay, bookInterview, cancelInterview} = useApplicationData();
 
+  // Get interviewers for selected day
   const interviewers = getInterviewersForDay(state, state.day);
   
+  // Get appointments for selected day
   const appointments = getAppointmentsForDay(state, state.day).map(appointment => {
     const interview = getInterview(state, appointment.interview);
 
@@ -54,4 +56,4 @@ export default function Application(props) {
       </section>
     </main>
   );
-}
+};
