@@ -21,7 +21,7 @@ export default function useApplicationData() {
   
   // update days array with new number of empty spots
   const updateDaySpots = (id, appointments) => {
-    const days = [...state.days];
+    const days = JSON.parse(JSON.stringify(state.days));
     const index = state.days.findIndex(day => day.appointments.includes(id));
     days[index].spots = calcEmptySpots(id, appointments);
     return days;
