@@ -34,10 +34,6 @@ export default function Appointment(props) {
 
   // After editing, transition to Status (Saving) screen and submit info to API
   const save = (name, interviewer) => {
-    if(!name || !interviewer) {
-      return;
-    }
-
     transition(SAVING);
     
     const interview = {
