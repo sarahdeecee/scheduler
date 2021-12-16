@@ -1,3 +1,6 @@
+/* useApplication is a custom hook that determines state
+   and includes all functions dealing with the API */
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 

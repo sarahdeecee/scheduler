@@ -1,3 +1,5 @@
+/* This file contains helper functions */
+
 // Find and return appointments array for a given day
 export function getAppointmentsForDay(state, day) {
   const dayAppointments = [];

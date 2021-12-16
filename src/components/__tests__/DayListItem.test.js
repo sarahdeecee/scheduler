@@ -1,3 +1,4 @@
+/* This file contains Cypress tests for the Day List Item component */
 import React from "react";
 
 import { render, cleanup } from "@testing-library/react";

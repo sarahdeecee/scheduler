@@ -1,3 +1,5 @@
+/* useVisualMode is a custom hook that decides which state to Show */
+
 import { useState } from "react";
 
 export default function useVisualMode(initial) {

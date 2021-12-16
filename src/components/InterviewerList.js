@@ -1,3 +1,4 @@
+/* This file parses all interviews for the chosen day */
 import React from "react";
 import InterviewerListItem from "components/InterviewerListItem";
 import "components/InterviewerList.scss";

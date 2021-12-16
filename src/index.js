@@ -1,3 +1,4 @@
+/* This file renders the application */
 import React from "react";
 import ReactDOM from "react-dom";
 

@@ -1,3 +1,5 @@
+/* This file formats each interviewer button at the bottom
+   of the appointment form */
 import React from "react";
 import classNames from "classnames";
 import "components/InterviewerListItem.scss";

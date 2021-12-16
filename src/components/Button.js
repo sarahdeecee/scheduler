@@ -1,3 +1,6 @@
+/* This file contains code for displaying
+   Submit, Cancel, and Confirm buttons */
+
 import React from "react";
 import classNames from "classnames";
 import "components/Button.scss";

@@ -1,3 +1,4 @@
+/* This file contains Cypress tests for the Application */
 import React from "react";
 
 import { render, cleanup } from "@testing-library/react";

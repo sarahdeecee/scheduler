@@ -1,3 +1,4 @@
+/* This file contains code for our Application */
 import React from "react";
 import "components/Application.scss";
 import useApplicationData from "hooks/useApplicationData";

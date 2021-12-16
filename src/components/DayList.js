@@ -1,3 +1,5 @@
+/* This file parses the lefthand navigation bar
+   with information about each day of the week */
 import React from "react";
 import DayListItem from "components/DayListItem";
 

@@ -1,3 +1,4 @@
+/* This file formats each day list idem */
 import React from "react";
 import classNames from "classnames";
 import "components/DayListItem.scss";
