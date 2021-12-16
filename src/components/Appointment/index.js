@@ -1,3 +1,6 @@
+/* This file formats each appointment slot depending on
+   the status of the interview: Show (exists), Empty (does not exist),
+   Create, Delete, Confirm, Status (saving or deleting) or Error */
 import React from "react";
 import "./styles.scss";
 import Header from './Header';

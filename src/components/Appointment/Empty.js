@@ -1,3 +1,4 @@
+/* This file controls the Empty appointment */
 import React from "react";
 
 export default function Empty(props) {

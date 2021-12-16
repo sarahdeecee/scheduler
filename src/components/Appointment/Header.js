@@ -1,3 +1,5 @@
+/* This file controls the time displayed above each
+   appointment slot */
 import React from "react";
 
 export default function Header(props) {

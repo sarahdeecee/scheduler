@@ -1,3 +1,4 @@
+/* This file controls the Error screen for an appointment */
 import React from 'react';
 
 export default function Error(props) {

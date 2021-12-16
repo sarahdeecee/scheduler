@@ -10,7 +10,7 @@ See your weekly appointments and daily empty slots on a single page.
 
 ![A screenshot of the interface](/docs/screenshot.png "A screenshot of the interface")
 
-### Create appointments:
+### Create appointments
 Type a name, choose an interviewer, and click Save to create your appointment. Interview Scheduler will error check before submitting.
 
 ![How to create an appointment](/docs/errorcheck.gif "How to create an appointment")

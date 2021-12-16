@@ -1,3 +1,4 @@
+/* This file controls the Form Confirmation */
 import React from 'react';
 import Button from '../Button';
 

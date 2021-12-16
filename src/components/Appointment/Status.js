@@ -1,3 +1,5 @@
+/* This file controls the transition screen
+   while saving or deleting */
 import React from 'react';
 
 export default function Status(props) {
