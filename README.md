@@ -5,8 +5,9 @@
 **Create**, **edit**, and **delete** your appointments with ease! This single page application keeps everything simple and clean.
 
 ## Features
-See your weekly appointments and empty slots
-![A screenshot of the interface](/data/errorcheck.gif "A screenshot of the interface")
+### Interface
+See your weekly appointments and empty slots on a single page
+![A screenshot of the interface](/data/screenshot.png "A screenshot of the interface")
 
 ### Create appointments:
 ![How to create an appointment](/data/errorcheck.gif "How to create an appointment")
