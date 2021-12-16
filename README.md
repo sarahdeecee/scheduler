@@ -8,22 +8,22 @@
 ### Interface
 See your weekly appointments and daily empty slots on a single page.
 
-![A screenshot of the interface](/data/screenshot.png "A screenshot of the interface")
+![A screenshot of the interface](/docs/screenshot.png "A screenshot of the interface")
 
 ### Create appointments:
 Type a name, choose an interviewer, and click Save to create your appointment. Interview Scheduler will error check before submitting.
 
-![How to create an appointment](/data/errorcheck.gif "How to create an appointment")
+![How to create an appointment](/docs/errorcheck.gif "How to create an appointment")
 
 ### Edit appointments
 Edit appointments with the click of a button.
 
-![How to edit an appointment](/data/edit.gif "How to edit an appointment")
+![How to edit an appointment](/docs/edit.gif "How to edit an appointment")
 
 ### Delete appointments
 Confirm your choice before deleting an appointment.
 
-![How to delete an appointment](/data/delete.gif "How to delete an appointment")
+![How to delete an appointment](/docs/delete.gif "How to delete an appointment")
 
 ## Stack
 - [`ReactJS`](https://reactjs.org/)
