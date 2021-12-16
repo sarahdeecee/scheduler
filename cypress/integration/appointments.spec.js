@@ -1,3 +1,4 @@
+/* This file contains Cypress tests for Appointment interactions */
 describe("Appointments", () => {
   beforeEach(() => {
     cy.request('GET','http://localhost:8001/api/debug/reset');

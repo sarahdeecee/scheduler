@@ -1,4 +1,4 @@
-/* This file contains Cypress tests for the Form component */
+/* This file contains Jest tests for the Form component */
 
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";

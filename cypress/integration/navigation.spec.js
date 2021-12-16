@@ -1,3 +1,4 @@
+/* This file contains Cypress tests for the Day List */
 describe("Navigation", () => {
   it("should visit root", () => {
     cy.visit("/");

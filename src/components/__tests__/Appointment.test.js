@@ -1,4 +1,4 @@
-/* This file contains Cypress tests for the Appointment component */
+/* This file contains Jest tests for the Appointment component */
 import React from "react";
 import { render } from "@testing-library/react";
 import Appointment from "components/Appointment";
