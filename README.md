@@ -1,6 +1,6 @@
 # Interview Scheduler
 
-**Interview Scheduler** keeps tracks of your appointments for the week. Easily choose an open slot, enter a name, and choose an interviewer to book your appointment. With Interview Scheduler, you'll never again overbook your week!
+**Interview Scheduler** keeps tracks of your appointments for the week. Easily choose an open slot, enter a name, and choose an interviewer to book your appointment. With Interview Scheduler, you'll never overbook your week again!
 
 **Create**, **edit**, and **delete** your appointments with ease! This single page application keeps everything simple and clean.
 
