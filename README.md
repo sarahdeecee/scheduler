@@ -10,13 +10,15 @@ See your weekly appointments and empty slots on a single page
 ![A screenshot of the interface](/data/screenshot.png "A screenshot of the interface")
 
 ### Create appointments:
+Interview Scheduler will error check before submitting
 ![How to create an appointment](/data/errorcheck.gif "How to create an appointment")
-Interview Scheduler will also error check before submitting
 
 ### Edit appointments
+Edit appointments with the click of a button
 ![How to edit an appointment](/data/edit.gif "How to edit an appointment")
 
 ### Delete appointments
+Confirm your choice before deleting an appointment
 ![How to delete an appointment](/data/delete.gif "How to delete an appointment")
 
 ## Stack
@@ -33,9 +35,10 @@ Install dependencies with `npm install`.
 
 ## Running The Server
 
-```sh
-npm start
-```
+- Type `npm start` to run the server
+- See the project at http://localhost:8000/
+
+Note: HTTP requests will be made to http://localhost:8001/
 
 ## Testing
 This project was developed with testing in [`Storybook`](https://storybook.js.org/), [`Jest`](https://jestjs.io/en/), [`Cypress`](https://www.cypress.io/), and [`React Testing Library`](https://testing-library.com/docs/react-testing-library/intro).
