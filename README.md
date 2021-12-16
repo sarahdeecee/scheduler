@@ -6,7 +6,8 @@
 
 ## Features
 ### Interface
-See your weekly appointments and empty slots on a single page
+See your weekly appointments and daily empty slots on a single page.
+
 ![A screenshot of the interface](/data/screenshot.png "A screenshot of the interface")
 
 ### Create appointments:
