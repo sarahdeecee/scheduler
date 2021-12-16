@@ -10,15 +10,18 @@ See your weekly appointments and empty slots on a single page
 ![A screenshot of the interface](/data/screenshot.png "A screenshot of the interface")
 
 ### Create appointments:
-Interview Scheduler will error check before submitting
+Type a name, choose an interviewer, and click Save to create your appointment. Interview Scheduler will error check before submitting.
+
 ![How to create an appointment](/data/errorcheck.gif "How to create an appointment")
 
 ### Edit appointments
-Edit appointments with the click of a button
+Edit appointments with the click of a button.
+
 ![How to edit an appointment](/data/edit.gif "How to edit an appointment")
 
 ### Delete appointments
-Confirm your choice before deleting an appointment
+Confirm your choice before deleting an appointment.
+
 ![How to delete an appointment](/data/delete.gif "How to delete an appointment")
 
 ## Stack
